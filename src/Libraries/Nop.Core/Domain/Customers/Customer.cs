@@ -214,5 +214,29 @@ namespace Nop.Core.Domain.Customers
         }
 
         #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Add customer role and reset customer roles cache
+        /// </summary>
+        /// <param name="role">Role</param>
+        public void AddCustomerRoleMapping(CustomerCustomerRoleMapping role)
+        {
+            CustomerCustomerRoleMappings.Add(role);
+            _customerRoles = null;
+        }
+
+        /// <summary>
+        /// Remove customer role and reset customer roles cache
+        /// </summary>
+        /// <param name="role">Role</param>
+        public void RemoveCustomerRoleMapping(CustomerCustomerRoleMapping role)
+        {
+            CustomerCustomerRoleMappings.Remove(role);
+            _customerRoles = null;
+        }
+
+        #endregion
     }
 }
